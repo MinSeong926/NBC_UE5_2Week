@@ -17,14 +17,15 @@ struct FItemData {
 	FName RequiredTitle; // 아이템 사용에 필요한 칭호
 };
 
-
-
 UCLASS()
 class CONTAINER_API ACRActor : public AActor
 {
 	GENERATED_BODY()
 	
 public:	
+    // 기본 생성자
+    ACRActor();
+
     // 1. 가방을 TArray로 구현
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory")
     TArray<FName> InventoryBag;
@@ -41,4 +42,7 @@ public:
     UFUNCTION(BlueprintCallable, Category = "Inventory")
     void UseItem(FName ItemName);
 
+    // 인벤토리 확인 함수
+    UFUNCTION(BlueprintCallable, Category = "Inventory")
+    void ShowInventory();
 };
